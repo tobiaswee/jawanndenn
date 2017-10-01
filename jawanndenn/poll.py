@@ -1,7 +1,7 @@
 # Copyright (C) 2016 Sebastian Pipping <sebastian@pipping.org>
 # Licensed under GNU Affero GPL v3 or later
 
-import cPickle as pickle
+import pickle
 import datetime
 import hashlib
 import logging
@@ -168,7 +168,7 @@ class PollDatabase(object):
                     suffix='.pickle',
                     )
 
-            with os.fdopen(fd, 'w') as f:
+            with os.fdopen(fd, 'wb') as f:
                 pickle.dump(d, f, _PICKLE_PROTOCOL_VERSION)
 
             shutil.move(tempfilename, filename)
